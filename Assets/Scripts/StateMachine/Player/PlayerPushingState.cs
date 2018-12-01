@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerPushingState : PlayerState
 {
+	private Direction direction;
+	private float destXPos;
+
 	public PlayerPushingState(Player player)
 		: base(player, StateID.PlayerPushingStateID)
 	{
@@ -20,6 +23,15 @@ public class PlayerPushingState : PlayerState
 	{
 		if(PlayerCrushedEvent != null)
 			PlayerCrushedEvent();
+	}
+
+	public Direction Direction
+	{
+		set
+		{
+			direction = value;
+			destXPos = player.transform.position.x + (int)direction * player.moveOffset;
+		}
 	}
 
 	public delegate void PlayerReturnedToRegularEventHandler();

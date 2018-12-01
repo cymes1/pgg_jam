@@ -5,8 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float movingSpeed;
+    public float moveOffset = 1.5f;
 
     private PlayerStateMachine stateMachine;
+    private GameObject leftBox;
+    private GameObject rightBox;
 
     void Start()
     {
@@ -62,5 +65,23 @@ public class Player : MonoBehaviour
         climbingState.PlayerCrushedEvent += stateMachine.OnPlayerCrush;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Box")       
+        {
+            return;
+        }
+    }
+
     public PlayerStateMachine StateMachine { get { return stateMachine; } }
+    public GameObject LeftBox
+    {
+        get { return leftBox;  }
+        set { leftBox = value; }
+    }
+    public GameObject RightBox
+    {
+        get { return rightBox;  }
+        set { rightBox = value; }
+    }
 }

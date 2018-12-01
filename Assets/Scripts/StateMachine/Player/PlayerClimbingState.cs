@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerClimbingState : PlayerState
 {
+	private Direction direction;
+
 	public PlayerClimbingState(Player player)
 		: base(player, StateID.PlayerClimbingStateID)
 	{
@@ -19,6 +21,15 @@ public class PlayerClimbingState : PlayerState
 	{
 		if(PlayerCrushedEvent != null)
 			PlayerCrushedEvent();
+	}
+
+	public Direction Direction
+	{
+		set
+		{
+			direction = value;
+			//destXPos = currentXPos + (int)direction * offset;
+		}
 	}
 
 	public delegate void PlayerReturnedToRegularEventHandler();

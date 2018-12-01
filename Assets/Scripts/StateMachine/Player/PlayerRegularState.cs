@@ -31,16 +31,16 @@ public class PlayerRegularState : PlayerState
 			PlayerStartedMovingEvent(dir);
 	}
 
-	public void Push()
+	public void Push(Direction dir)
 	{
 		if(PlayerStartedPushingEvent != null)
-			PlayerStartedPushingEvent();
+			PlayerStartedPushingEvent(dir);
 	}
 
-	public void Climb()
+	public void Climb(Direction dir)
 	{
 		if(PlayerStartedClimbingEvent != null)
-			PlayerStartedClimbingEvent();
+			PlayerStartedClimbingEvent(dir);
 	}
 
 	public void Crush()
@@ -50,8 +50,8 @@ public class PlayerRegularState : PlayerState
 	}
 
 	public delegate void PlayerStartedMovingEventHandler(Direction dir);
-    public delegate void PlayerStartedPushingEventHandler();
-    public delegate void PlayerStartedClimbingEventHandler();
+    public delegate void PlayerStartedPushingEventHandler(Direction dir);
+    public delegate void PlayerStartedClimbingEventHandler(Direction dir);
     public delegate void PlayerCrushedEventHandler();
     public event PlayerStartedMovingEventHandler PlayerStartedMovingEvent;
     public event PlayerStartedPushingEventHandler PlayerStartedPushingEvent;

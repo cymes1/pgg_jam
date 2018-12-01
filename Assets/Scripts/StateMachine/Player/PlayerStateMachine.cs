@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
-	public void OnPlayerPush()
+	public void OnPlayerPush(Direction dir)
 	{
 		PerformTransition(Transition.PlayerPushTransition);
+		((PlayerPushingState)currentState).Direction = dir;
 	}
 
 	public void OnPlayerMove(Direction dir)
@@ -15,9 +16,10 @@ public class PlayerStateMachine : StateMachine
 		((PlayerMovingState)currentState).Direction = dir;
 	}
 	
-	public void OnPlayerClimb()
+	public void OnPlayerClimb(Direction dir)
 	{
 		PerformTransition(Transition.PlayerClimbTransition);
+		((PlayerClimbingState)currentState).Direction = dir;
 	}
 	
 	public void OnPlayerCrush()

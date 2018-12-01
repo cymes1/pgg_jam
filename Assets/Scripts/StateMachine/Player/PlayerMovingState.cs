@@ -5,25 +5,20 @@ using UnityEngine;
 public class PlayerMovingState : PlayerState
 {
 	private Direction direction;
-	private float currentXPos;
-	private float offset = 1;
-	private float epsilon = 0.3f;
+	private float destXPos;
 
 	public PlayerMovingState(Player player)
 		: base(player, StateID.PlayerMovingStateID)
 	{}
 
-	public override void DoBeforeEntering()
-	{
-		currentXPos = player.transform.position.x;
-	}
-
 	public override void Act()
 	{
 		player.transform.Translate((int)direction * player.movingSpeed * Time.deltaTime, 0, 0);
-		if(Mathf.Abs((currentXPos + ((int)direction * offset)) - player.transform.position.x) < epsilon)
+		if(destXPos * (int)direction < player.transform.position.x * (int)direction)
 		{
-			player.transform.position = Vector3.right * (currentXPos + ((int)direction * offset));
+			Vector3 newPos = player.transform.position;
+			newPos.x = destXPos;
+			player.transform.position = newPos;
 			ReturnToRegular();
 		}
 	}
@@ -40,7 +35,14 @@ public class PlayerMovingState : PlayerState
 			PlayerCrushedEvent();
 	}
 
-	public Direction Direction { set { direction = value; } }
+	public Direction Direction
+	{
+		set
+		{
+			direction = value;
+			destXPos = player.transform.position.x + (int)direction * player.moveOffset;
+		}
+	}
 
 	public delegate void PlayerReturnedToRegularEventHandler();
     public delegate void PlayerCrushedEventHandler();
