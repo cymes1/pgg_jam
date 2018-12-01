@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction //temp
-{
-	Left, Right
-}
-
 [RequireComponent(typeof(BoxCollider2D))]
 public class Box : MonoBehaviour 
 {
@@ -24,7 +19,7 @@ public class Box : MonoBehaviour
 			return false;
 		}
 
-		if(direction == Direction.Left)
+		if(direction == Direction.LEFT)
 		{
 			return !Left.IsTriggered;
 		}
