@@ -5,12 +5,32 @@ using UnityEngine;
 public class PlayerPushingState : PlayerState
 {
 	private Direction direction;
+	private GameObject target;
 	private float destXPos;
 
 	public PlayerPushingState(Player player)
 		: base(player, StateID.PlayerPushingStateID)
 	{
 
+	}
+
+	public override void Act()
+	{
+		player.transform.Translate((int)direction * player.pushingSpeed * Time.deltaTime, 0, 0);
+		if(destXPos * (int)direction < player.transform.position.x * (int)direction)
+		{
+			Vector3 newPos = player.transform.position;
+			newPos.x = destXPos;
+			player.transform.position = newPos;
+
+			// box
+			destXPos = player.transform.position.x + (int)direction * player.moveOffset;
+			newPos = target.transform.position;
+			newPos.x = destXPos;
+			target.transform.position = newPos;
+
+			ReturnToRegular();
+		}
 	}
 
 	public void ReturnToRegular()
@@ -31,6 +51,7 @@ public class PlayerPushingState : PlayerState
 		{
 			direction = value;
 			destXPos = player.transform.position.x + (int)direction * player.moveOffset;
+			target = direction == Direction.LEFT ? player.LeftBox : player.RightBox;
 		}
 	}
 

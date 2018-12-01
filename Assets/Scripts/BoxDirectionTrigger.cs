@@ -15,7 +15,6 @@ public class BoxDirectionTrigger : MonoBehaviour
 		if(other.tag == "Trigger")
 		{
 			isTriggered = true;
-			Debug.Log("Box: I'am in trigger");
 		}
 	}
 
@@ -24,7 +23,6 @@ public class BoxDirectionTrigger : MonoBehaviour
 		if(other.tag == "Trigger")
 		{
 			isTriggered = false;
-			Debug.Log("Box: i'am exit from trigger");
 		}
 	}
 }

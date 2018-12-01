@@ -21,7 +21,33 @@ public class PlayerRegularState : PlayerState
 		else if(!isAxisInUse)
 		{
 			isAxisInUse = true;
-			Move(Input.GetAxis("Horizontal") > 0 ? Direction.RIGHT : Direction.LEFT);
+			TakeAction(Input.GetAxis("Horizontal") > 0 ? Direction.RIGHT : Direction.LEFT);
+		}
+	}
+
+	private void TakeAction(Direction direction)
+	{
+		switch (direction)
+		{
+			case Direction.LEFT:
+				if(player.LeftBox != null)
+					if(player.LeftBox.GetComponent<Box>().CanBeMoved(Direction.LEFT))
+						Push(Direction.LEFT);
+					else
+						return;
+				else
+					Move(Direction.LEFT);
+				break;
+
+			default:
+				if(player.RightBox != null)
+					if(player.RightBox.GetComponent<Box>().CanBeMoved(Direction.RIGHT))
+						Push(Direction.RIGHT);
+					else
+						return;
+				else
+					Move(Direction.RIGHT);
+				break;
 		}
 	}
 

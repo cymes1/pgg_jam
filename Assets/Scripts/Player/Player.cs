@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float movingSpeed;
+    public float pushingSpeed;
     public float moveOffset = 1.5f;
 
     private PlayerStateMachine stateMachine;
@@ -67,28 +68,34 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "box")       
+        if(other.tag == "Trigger")       
         {
-            if(other.transform.position.x < transform.position.x)
+            GameObject otherObject = other.transform.parent.gameObject;
+            //if(Mathf.Abs(otherObject.transform.position.y - transform.position.y) > 0.2f)
+            //    return;
+
+            if(otherObject.transform.position.x < transform.position.x)
             {
-                leftBox = other.gameObject;
+                leftBox = otherObject;
             }
-            else if(other.transform.position.x > transform.position.x)
+            else if(otherObject.transform.position.x > transform.position.x)
             {
-                rightBox = other.gameObject;
+                rightBox = otherObject;
             }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "box")
+        if(other.tag == "Trigger")
         {
-            if(other.transform.position.x < transform.position.x)
+            GameObject otherObject = other.transform.parent.gameObject;
+
+            if(otherObject.Equals(leftBox))
             {
                 leftBox = null;
             }
-            else if(other.transform.position.x > transform.position.x)
+            else if(otherObject.Equals(rightBox))
             {
                 rightBox = null;
             }
