@@ -67,9 +67,31 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Box")       
+        if(other.tag == "box")       
         {
-            return;
+            if(other.transform.position.x < transform.position.x)
+            {
+                leftBox = other.gameObject;
+            }
+            else if(other.transform.position.x > transform.position.x)
+            {
+                rightBox = other.gameObject;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "box")
+        {
+            if(other.transform.position.x < transform.position.x)
+            {
+                leftBox = null;
+            }
+            else if(other.transform.position.x > transform.position.x)
+            {
+                rightBox = null;
+            }
         }
     }
 
