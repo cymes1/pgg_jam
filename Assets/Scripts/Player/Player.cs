@@ -83,6 +83,10 @@ public class Player : MonoBehaviour
                 rightBox = otherObject;
             }
         }
+        else if(other.tag == "TriggerDown")
+        {
+            stateMachine.OnPlayerCrush();
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
