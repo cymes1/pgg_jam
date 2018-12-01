@@ -10,9 +10,13 @@ public class Crane : MonoBehaviour {
     public bool testDrop = false;
     public Vector3 respawnPosition;
     public GameObject staticBox;
+    public RespawnTunnel respawnTunel;
+    public float y=-1f;
 
     bool moveXPlus = false;
     float startPositionX;
+    bool isRespawnBox = false;
+    int random;
     
 
 	void Start ()
@@ -23,15 +27,20 @@ public class Crane : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
         if (transform.position.x >= startPositionX + rangeMove)
         {
             moveXPlus = false;
             staticBox.SetActive(true);
+            isRespawnBox = false;
+            random = Random.Range(0, 10);
         }
         else if (transform.position.x <= startPositionX - rangeMove)
         {
             moveXPlus = true;
             staticBox.SetActive(true);
+            isRespawnBox = false;
+            random = Random.Range(0, 10);
         }
 
         if (moveXPlus)
@@ -42,18 +51,27 @@ public class Crane : MonoBehaviour {
         {
             transform.Translate(-speedCrane, 0, 0);
         }
-        if (testDrop)
-        {
-            InstantiateBox();
-            testDrop = false;
-            staticBox.SetActive(false);
-        }
+
     }
 
-    void InstantiateBox()
+    void InstantiateBox(int random)
     {
         
-        Instantiate(box, transform.position+respawnPosition, transform.rotation);
+        respawnPosition = respawnTunel.respawnPosition[random];
+        Instantiate(box, respawnPosition + new Vector3(0, y, 0), transform.rotation);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isRespawnBox && collision.transform.position == respawnTunel.respawnTunel[random].transform.position)
+        {            
+            InstantiateBox(random);
+            testDrop = false;
+            staticBox.SetActive(false);
+            isRespawnBox = true;
+        }
+    }
+    
+    
 
 }
