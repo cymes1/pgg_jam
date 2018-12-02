@@ -24,12 +24,12 @@ public class PlayerRegularState : PlayerState
 		if(rigidbody.velocity.y != 0)
 			return;
 
-		if(Input.GetKeyDown(KeyCode.Z))
+		if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton2))
 		{
 			player.spriteRenderer.flipX = true;
 			TakeClimbAction(Direction.LEFT);
 		}
-		else if(Input.GetKeyDown(KeyCode.X))
+		else if(Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton1))
 		{
 			player.spriteRenderer.flipX = false;
 			TakeClimbAction(Direction.RIGHT);
