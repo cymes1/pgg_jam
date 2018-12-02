@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
 
     public GameObject gameOverScreen;
+    public GameObject crane;
 
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;
