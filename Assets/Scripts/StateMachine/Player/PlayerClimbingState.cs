@@ -14,6 +14,11 @@ public class PlayerClimbingState : PlayerState
 	{
 	}
 
+	public override void DoBeforeEntering()
+	{
+		player.animator.SetBool("isWalking", true);
+	}
+
 	public override void Act()
 	{
 		Vector3 position = player.transform.position;
@@ -23,6 +28,8 @@ public class PlayerClimbingState : PlayerState
 			position.y = yTarget;
 		else if(position.y == yTarget)
 		{
+			player.animator.SetBool("isWalking", false);
+			player.animator.SetBool("isIdle", true);
 			if(position.x * (int)direction < xTarget * (int)direction)
 				position.x += (int)direction * player.climbSpeed * Time.deltaTime;
 			else if(position.x * (int)direction > xTarget * (int)direction)
