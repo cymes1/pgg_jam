@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592854636890458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.32, y: -2.85, z: 0}
+  m_LocalPosition: {x: -8.32, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4800402480851428}
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1380344253129590}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 3.1899, y: -4.84, z: 0}
-  m_LocalScale: {x: 1.0000005, y: 1.0435776, z: 1}
+  m_LocalScale: {x: 1.0000005, y: 1.043578, z: 1}
   m_Children: []
   m_Father: {fileID: 4800402480851428}
   m_RootOrder: 1
@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248029247000794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.34, y: -2.85, z: 0}
+  m_LocalPosition: {x: 8.34, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4800402480851428}
@@ -336,7 +336,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.46551287}
+  m_Offset: {x: -0.09105678, y: 0.46551275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -347,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 4.994396}
+  m_Size: {x: 0.117886454, y: 4.994396}
   m_EdgeRadius: 0
 --- !u!61 &61525326497700428
 BoxCollider2D:
@@ -361,7 +361,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.46551287}
+  m_Offset: {x: 0.03268242, y: 0.46551275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -372,7 +372,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 4.994396}
+  m_Size: {x: 0.07866764, y: 4.994396}
   m_EdgeRadius: 0
 --- !u!114 &114210089665044242
 MonoBehaviour:

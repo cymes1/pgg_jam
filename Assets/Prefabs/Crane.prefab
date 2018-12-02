@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 1756376239299522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.225, y: 0.225, z: 0.225}
   m_Children: []
   m_Father: {fileID: 4026092114805672}
   m_RootOrder: 0
@@ -225,7 +225,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.008290529}
+  m_Offset: {x: 0, y: -1.2428114}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -236,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.1704373}
+  m_Size: {x: 1, y: 3.1747937}
   m_EdgeRadius: 0
 --- !u!82 &82931327160565694
 AudioSource:
@@ -345,8 +345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeMove: 14
-  speedCrane: 1
-  box: {fileID: 1671553941596176, guid: 489f77961015fca44bdc4c248adb6d80, type: 2}
+  speedCrane: 0.2
+  box: {fileID: 1749419336168020, guid: 42dd267e37d07074e9759e7469293cf8, type: 2}
   testDrop: 0
   respawnPosition: {x: -6.75, y: -1, z: 0}
   staticBox: {fileID: 1150263516841074}
@@ -422,7 +422,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f76c0a63641ccac4295f37d3ebfa51e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c411f1ddfe0c8c24eaf9c6162ff09df9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
