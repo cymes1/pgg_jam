@@ -35,7 +35,7 @@ public class PlayerRegularState : PlayerState
 			TakeClimbAction(Direction.RIGHT);
 		}
 
-		if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f)
+		if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.5f)
 		{
 			isAxisInUse = false;
 			return;
