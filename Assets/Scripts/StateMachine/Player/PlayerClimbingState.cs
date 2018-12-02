@@ -6,9 +6,31 @@ public class PlayerClimbingState : PlayerState
 {
 	private Direction direction;
 
+	private float xTarget;
+	private float yTarget;
+
 	public PlayerClimbingState(Player player)
 		: base(player, StateID.PlayerClimbingStateID)
 	{
+	}
+
+	public override void Act()
+	{
+		Vector3 position = player.transform.position;
+		if(position.y < yTarget)
+			position.y += player.climbSpeed * Time.deltaTime;
+		else if(position.y > yTarget)
+			position.y = yTarget;
+		else if(position.y == yTarget)
+		{
+			if(position.x * (int)direction < xTarget * (int)direction)
+				position.x += (int)direction * player.climbSpeed * Time.deltaTime;
+			else if(position.x * (int)direction > xTarget * (int)direction)
+				position.x = xTarget;
+			else
+				ReturnToRegular();
+		}
+		player.transform.position = position;
 	}
 
 	public void ReturnToRegular()
@@ -28,7 +50,8 @@ public class PlayerClimbingState : PlayerState
 		set
 		{
 			direction = value;
-			//destXPos = currentXPos + (int)direction * offset;
+			xTarget = player.transform.position.x + (int)direction * player.moveOffset;
+			yTarget = player.transform.position.y + player.moveOffset;
 		}
 	}
 

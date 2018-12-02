@@ -9,4 +9,9 @@ public class PlayerCrushedState : PlayerState
 	{
 
 	}
+
+	public override void DoBeforeEntering()
+	{
+		player.GetComponent<Collider2D>().isTrigger = true;
+	}
 }

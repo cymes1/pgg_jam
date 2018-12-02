@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float movingSpeed;
     public float pushingSpeed;
     public float moveOffset = 1.5f;
+    public float climbSpeed = 1;
 
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;

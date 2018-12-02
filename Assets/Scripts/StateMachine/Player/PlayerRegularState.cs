@@ -13,6 +13,11 @@ public class PlayerRegularState : PlayerState
 
 	public override void Act()
 	{
+		if(Input.GetKeyDown(KeyCode.Z))
+			TakeClimbAction(Direction.LEFT);
+		else if(Input.GetKeyDown(KeyCode.X))
+			TakeClimbAction(Direction.RIGHT);
+
 		if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f)
 		{
 			isAxisInUse = false;
@@ -51,6 +56,22 @@ public class PlayerRegularState : PlayerState
 		}
 	}
 
+	private void TakeClimbAction(Direction direction)
+	{
+		switch (direction)
+		{
+			case Direction.LEFT:
+				if(player.LeftBox != null && player.LeftBox.GetComponent<Box>().CanClimb())
+					Climb(Direction.LEFT);
+				break;
+
+			default:
+				if(player.RightBox != null && player.RightBox.GetComponent<Box>().CanClimb())
+					Climb(Direction.RIGHT);
+				break;
+		}
+	}
+
 	public void Move(Direction dir)
 	{
 		if(PlayerStartedMovingEvent != null)
@@ -66,7 +87,9 @@ public class PlayerRegularState : PlayerState
 	public void Climb(Direction dir)
 	{
 		if(PlayerStartedClimbingEvent != null)
+		{
 			PlayerStartedClimbingEvent(dir);
+		}
 	}
 
 	public void Crush()
