@@ -12,7 +12,7 @@ public class BoxDirectionTrigger : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Trigger")
+		if(other.tag == "Trigger" || other.tag == "TriggerDown" || other.tag == "TriggerUp")
 		{
 			isTriggered = true;
 		}
@@ -20,7 +20,7 @@ public class BoxDirectionTrigger : MonoBehaviour
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if(other.tag == "Trigger")
+		if(other.tag == "Trigger" || other.tag == "TriggerDown" || other.tag == "TriggerUp")
 		{
 			isTriggered = false;
 		}

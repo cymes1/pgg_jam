@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;
     private GameObject rightBox;
+    private bool isOnGround;
 
     void Start()
     {
@@ -88,6 +89,10 @@ public class Player : MonoBehaviour
         {
             stateMachine.OnPlayerCrush();
         }
+        else if(other.tag == "TriggerUp")
+        {
+            isOnGround = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -105,6 +110,10 @@ public class Player : MonoBehaviour
                 rightBox = null;
             }
         }
+        if(other.tag == "TriggerUp")
+        {
+            isOnGround = false;
+        }
     }
 
     public PlayerStateMachine StateMachine { get { return stateMachine; } }
@@ -118,4 +127,5 @@ public class Player : MonoBehaviour
         get { return rightBox;  }
         set { rightBox = value; }
     }
+    public bool IsOnGround { get { return isOnGround; } }
 }

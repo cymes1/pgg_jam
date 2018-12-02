@@ -5,14 +5,24 @@ using UnityEngine;
 public class PlayerRegularState : PlayerState
 {
 	private bool isAxisInUse;
+	private Rigidbody2D rigidbody;
 
 	public PlayerRegularState(Player player)
 		: base(player, StateID.PlayerRegularStateID)
 	{
 	}
 
+	public override void DoBeforeEntering()
+	{
+		rigidbody = player.GetComponent<Rigidbody2D>();
+		rigidbody.bodyType = RigidbodyType2D.Dynamic;
+	}
+
 	public override void Act()
 	{
+		if(rigidbody.velocity.y != 0)
+			return;
+
 		if(Input.GetKeyDown(KeyCode.Z))
 			TakeClimbAction(Direction.LEFT);
 		else if(Input.GetKeyDown(KeyCode.X))
@@ -30,26 +40,41 @@ public class PlayerRegularState : PlayerState
 		}
 	}
 
+	public override void DoBeforeLeaving()
+	{
+		player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+	}
+
 	private void TakeAction(Direction direction)
 	{
 		switch (direction)
 		{
 			case Direction.LEFT:
 				if(player.LeftBox != null)
-					if(player.LeftBox.GetComponent<Box>().CanBeMoved(Direction.LEFT))
+				{
+					Box box = player.LeftBox.GetComponent<Box>();
+					if(box == null)
+						Move(Direction.LEFT);
+					else if(box.CanBeMoved(Direction.LEFT))
 						Push(Direction.LEFT);
 					else
 						return;
+				}
 				else
 					Move(Direction.LEFT);
 				break;
 
 			default:
 				if(player.RightBox != null)
-					if(player.RightBox.GetComponent<Box>().CanBeMoved(Direction.RIGHT))
+				{
+					Box box = player.RightBox.GetComponent<Box>();
+					if(box == null)
+						Move(Direction.RIGHT);
+					else if(box.CanBeMoved(Direction.RIGHT))
 						Push(Direction.RIGHT);
 					else
 						return;
+				}
 				else
 					Move(Direction.RIGHT);
 				break;
