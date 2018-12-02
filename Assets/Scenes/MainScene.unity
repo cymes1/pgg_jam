@@ -242,6 +242,11 @@ Prefab:
       propertyPath: shiftBox
       value: 
       objectReference: {fileID: 8300000, guid: 7ca0ba4a4dbabf74c8d545e52fd99011, type: 3}
+    - target: {fileID: 114657327736506428, guid: b8de1e99c2293bc4091cd508fcfac4fd,
+        type: 2}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 218635883}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8de1e99c2293bc4091cd508fcfac4fd, type: 2}
   m_IsPrefabAsset: 0
@@ -587,6 +592,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
+--- !u!1 &218635883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1283169242602106, guid: 79808cf892b34f642a847019e723f67b,
+    type: 2}
+  m_PrefabInternal: {fileID: 929631952}
 --- !u!1001 &284957807
 Prefab:
   m_ObjectHideFlags: 0

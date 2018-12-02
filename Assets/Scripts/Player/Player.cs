@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public AudioClip walk, climb, reflectLadder,shiftBox;
     public AudioSource audioSource;
 
+    public GameObject gameOverScreen;
+
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;
     private GameObject rightBox;
