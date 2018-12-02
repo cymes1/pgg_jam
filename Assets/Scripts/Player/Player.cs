@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float pushingSpeed;
     public float moveOffset = 1.5f;
     public float climbSpeed = 1;
+    public Animator animator;
+    public SpriteRenderer renderer;
 
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;

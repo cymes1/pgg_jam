@@ -14,6 +14,7 @@ public class PlayerRegularState : PlayerState
 
 	public override void DoBeforeEntering()
 	{
+		player.animator.SetBool("isIdle", true);
 		rigidbody = player.GetComponent<Rigidbody2D>();
 		rigidbody.bodyType = RigidbodyType2D.Dynamic;
 	}
@@ -24,9 +25,15 @@ public class PlayerRegularState : PlayerState
 			return;
 
 		if(Input.GetKeyDown(KeyCode.Z))
+		{
+			player.renderer.flipX = true;
 			TakeClimbAction(Direction.LEFT);
+		}
 		else if(Input.GetKeyDown(KeyCode.X))
+		{
+			player.renderer.flipX = false;
 			TakeClimbAction(Direction.RIGHT);
+		}
 
 		if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f)
 		{
@@ -42,6 +49,7 @@ public class PlayerRegularState : PlayerState
 
 	public override void DoBeforeLeaving()
 	{
+		player.animator.SetBool("isIdle", false);
 		player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 	}
 
@@ -50,6 +58,7 @@ public class PlayerRegularState : PlayerState
 		switch (direction)
 		{
 			case Direction.LEFT:
+				player.renderer.flipX = true;
 				if(player.LeftBox != null)
 				{
 					Box box = player.LeftBox.GetComponent<Box>();
@@ -65,6 +74,7 @@ public class PlayerRegularState : PlayerState
 				break;
 
 			default:
+				player.renderer.flipX = false;
 				if(player.RightBox != null)
 				{
 					Box box = player.RightBox.GetComponent<Box>();

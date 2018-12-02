@@ -14,6 +14,11 @@ public class PlayerPushingState : PlayerState
 
 	}
 
+	public override void DoBeforeEntering()
+	{
+		player.animator.SetBool("isPushing", true);
+	}
+
 	public override void Act()
 	{
 		player.transform.Translate((int)direction * player.pushingSpeed * Time.deltaTime, 0, 0);
@@ -31,6 +36,11 @@ public class PlayerPushingState : PlayerState
 
 			ReturnToRegular();
 		}
+	}
+
+	public override void DoBeforeLeaving()
+	{
+		player.animator.SetBool("isPushing", false);
 	}
 
 	public void ReturnToRegular()

@@ -11,6 +11,11 @@ public class PlayerMovingState : PlayerState
 		: base(player, StateID.PlayerMovingStateID)
 	{}
 
+	public override void DoBeforeEntering()
+	{
+		player.animator.SetBool("isWalking", true);
+	}
+
 	public override void Act()
 	{
 		player.transform.Translate((int)direction * player.movingSpeed * Time.deltaTime, 0, 0);
@@ -21,6 +26,11 @@ public class PlayerMovingState : PlayerState
 			player.transform.position = newPos;
 			ReturnToRegular();
 		}
+	}
+
+	public override void DoBeforeLeaving()
+	{
+		player.animator.SetBool("isWalking", false);
 	}
 
 	public void ReturnToRegular()
