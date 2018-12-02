@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour 
 {
 	[SerializeField] private GameObject defaultButton;
+	[SerializeField] private GameObject backButton;
 	private GameObject currentSelectedButton;
 	private AudioSource audioSource;
+	[SerializeField] private GameObject credits;
 
 	[SerializeField] private AudioClip startClip;
 	[SerializeField] private AudioClip creditsClip;
-	[SerializeField] private AudioClip settingsClip;
 	[SerializeField] private AudioClip exitClip;
+	[SerializeField] private AudioClip backClip;
 
 
 	void Start () 
@@ -41,9 +43,6 @@ public class MainMenu : MonoBehaviour
 				case "Credits":
 					audioSource.PlayOneShot(creditsClip);
 					break;
-				case "Settings":
-					audioSource.PlayOneShot(settingsClip);
-					break;
 				case "Exit":
 					audioSource.PlayOneShot(exitClip);
 					break;
@@ -58,12 +57,16 @@ public class MainMenu : MonoBehaviour
 
 	public void OnCredits()
 	{
-		//todo
+		credits.SetActive(true);
+		EventSystem.current.SetSelectedGameObject(backButton);
+		audioSource.PlayOneShot(backClip);
 	}
 
-	public void OnSettings()
+	public void OnBack()
 	{
-		//todo
+		credits.SetActive(false);
+		EventSystem.current.SetSelectedGameObject(defaultButton);
+		audioSource.PlayOneShot(startClip);
 	}
 
 	public void OnExit()
