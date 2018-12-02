@@ -1035,16 +1035,6 @@ Prefab:
       propertyPath: respawnTunel.Array.data[9]
       value: 
       objectReference: {fileID: 1635230969}
-    - target: {fileID: 114152866766324104, guid: b1d21b01d4daf7f40949d3b2e155ed18,
-        type: 2}
-      propertyPath: speedCrane
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114152866766324104, guid: b1d21b01d4daf7f40949d3b2e155ed18,
-        type: 2}
-      propertyPath: rangeMove
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d21b01d4daf7f40949d3b2e155ed18, type: 2}
   m_IsPrefabAsset: 0

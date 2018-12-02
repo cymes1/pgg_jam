@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public float climbSpeed = 1;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    public AudioClip walk, climb, reflectLadder,shiftBox;
+    public AudioSource audioSource;
 
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;
@@ -116,6 +118,46 @@ public class Player : MonoBehaviour
         {
             isOnGround = false;
         }
+    }
+
+    public void WalkSoundOn()
+    {
+        audioSource.clip = walk;
+        audioSource.pitch = 2;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void WalkSoundOff()
+    {       
+        audioSource.loop = false;
+        audioSource.pitch = 1;
+        audioSource.Stop();
+        audioSource.PlayOneShot(walk);
+    }
+
+    public void ClimbSoundOn()
+    {
+        audioSource.clip = climb;
+        audioSource.pitch = 4;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void ClimbSoundOff()
+    {
+        audioSource.loop = false;
+        audioSource.pitch = 1;
+        audioSource.Stop();
+    }
+    public void ReflectLadder()
+    {
+        audioSource.PlayOneShot(reflectLadder);
+    }
+
+    public void ShiftBox()
+    {
+        audioSource.PlayOneShot(shiftBox);
     }
 
     public PlayerStateMachine StateMachine { get { return stateMachine; } }

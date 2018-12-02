@@ -30,22 +30,22 @@ public class SoundDropping : MonoBehaviour {
         {
             audioSource.pitch = 1f;
            
-            if (distance < 3.75f)
+            if (distance < 4.5f)
             {
                 pitchUp1 = false;
             }
         }
-        else if (distance < 3.75f && pitchUp2)
+        else if (distance < 4.5f && pitchUp2)
         {
             audioSource.pitch = 1.5f;
-            if (distance < 2.85f)
+            if (distance < 3.5f)
             {
                 pitchUp2 = false;
             }
         }
-        else if(distance < 2.85f && pitchUp3)
+        else if(distance < 3.5f && pitchUp3)
         {
-            audioSource.pitch = 2.5f;
+            audioSource.pitch = 2.75f;
             pitchUp3 = false;
         }
         if(distance < 1.51f)

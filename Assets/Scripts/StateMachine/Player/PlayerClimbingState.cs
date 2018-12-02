@@ -18,6 +18,7 @@ public class PlayerClimbingState : PlayerState
 	{
 		player.animator.SetBool("isWalking", true);
 		player.GetComponent<BoxCollider2D>().isTrigger = true;
+        player.ClimbSoundOn();
 	}
 
 	public override void Act()
@@ -46,6 +47,7 @@ public class PlayerClimbingState : PlayerState
 	public override void DoBeforeLeaving()
 	{
 		player.GetComponent<BoxCollider2D>().isTrigger = false;
+        player.ClimbSoundOff();
 	}
 
 	public void ReturnToRegular()

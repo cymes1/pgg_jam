@@ -17,6 +17,7 @@ public class PlayerPushingState : PlayerState
 	public override void DoBeforeEntering()
 	{
 		player.animator.SetBool("isPushing", true);
+        player.ShiftBox();
 	}
 
 	public override void Act()

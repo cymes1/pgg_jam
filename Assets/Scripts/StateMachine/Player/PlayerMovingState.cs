@@ -14,6 +14,7 @@ public class PlayerMovingState : PlayerState
 	public override void DoBeforeEntering()
 	{
 		player.animator.SetBool("isWalking", true);
+        player.WalkSoundOn();
 	}
 
 	public override void Act()
@@ -31,7 +32,8 @@ public class PlayerMovingState : PlayerState
 	public override void DoBeforeLeaving()
 	{
 		player.animator.SetBool("isWalking", false);
-	}
+        player.WalkSoundOff();
+    }
 
 	public void ReturnToRegular()
 	{

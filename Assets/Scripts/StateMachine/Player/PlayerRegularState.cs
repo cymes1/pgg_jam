@@ -96,14 +96,18 @@ public class PlayerRegularState : PlayerState
 		switch (direction)
 		{
 			case Direction.LEFT:
-				if(player.LeftBox != null && player.LeftBox.GetComponent<Box>().CanClimb())
-					Climb(Direction.LEFT);
+                if (player.LeftBox != null && player.LeftBox.GetComponent<Box>().CanClimb())
+                    Climb(Direction.LEFT);
+                else
+                    player.ReflectLadder();
 				break;
 
 			default:
 				if(player.RightBox != null && player.RightBox.GetComponent<Box>().CanClimb())
 					Climb(Direction.RIGHT);
-				break;
+                else
+                    player.ReflectLadder();
+                break;
 		}
 	}
 

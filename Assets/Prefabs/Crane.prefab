@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e98c50d23d8fb545810667b3ecabc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeMove: 14
+  rangeMove: 12
   speedCrane: 0.2
   box: {fileID: 1749419336168020, guid: 42dd267e37d07074e9759e7469293cf8, type: 2}
   testDrop: 0
