@@ -213,54 +213,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4873937616419876, guid: b8de1e99c2293bc4091cd508fcfac4fd, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4873937616419876, guid: b8de1e99c2293bc4091cd508fcfac4fd, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212233565083176312, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f76c0a63641ccac4295f37d3ebfa51e7,
-        type: 3}
-    - target: {fileID: 4873937616419876, guid: b8de1e99c2293bc4091cd508fcfac4fd, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657327736506428, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: pushingSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657327736506428, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 182989752}
-    - target: {fileID: 212233565083176312, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212233565083176312, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212233565083176312, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657327736506428, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-        type: 2}
-      propertyPath: renderer
-      value: 
-      objectReference: {fileID: 182989749}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8de1e99c2293bc4091cd508fcfac4fd, type: 2}
   m_IsPrefabAsset: 0
@@ -302,6 +254,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  boxRespawnCounter: 
 --- !u!61 &154148225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -440,54 +393,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1085747176220032, guid: b8de1e99c2293bc4091cd508fcfac4fd,
     type: 2}
   m_PrefabInternal: {fileID: 128496185}
---- !u!212 &182989749 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212233565083176312, guid: b8de1e99c2293bc4091cd508fcfac4fd,
-    type: 2}
-  m_PrefabInternal: {fileID: 128496185}
---- !u!61 &182989751
-BoxCollider2D:
+--- !u!81 &182989747
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182989746}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.2}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
---- !u!95 &182989752
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 182989746}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fced04c50856e0349b7ef5a1c9b46154, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &184787047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4776266653980324, guid: 42dd267e37d07074e9759e7469293cf8,
@@ -2126,7 +2038,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1449915152}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1449915154
 Camera:
   m_ObjectHideFlags: 0

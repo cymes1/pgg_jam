@@ -26,12 +26,12 @@ public class PlayerRegularState : PlayerState
 
 		if(Input.GetKeyDown(KeyCode.Z))
 		{
-			player.renderer.flipX = true;
+			player.spriteRenderer.flipX = true;
 			TakeClimbAction(Direction.LEFT);
 		}
 		else if(Input.GetKeyDown(KeyCode.X))
 		{
-			player.renderer.flipX = false;
+			player.spriteRenderer.flipX = false;
 			TakeClimbAction(Direction.RIGHT);
 		}
 
@@ -58,7 +58,7 @@ public class PlayerRegularState : PlayerState
 		switch (direction)
 		{
 			case Direction.LEFT:
-				player.renderer.flipX = true;
+				player.spriteRenderer.flipX = true;
 				if(player.LeftBox != null)
 				{
 					Box box = player.LeftBox.GetComponent<Box>();
@@ -74,7 +74,7 @@ public class PlayerRegularState : PlayerState
 				break;
 
 			default:
-				player.renderer.flipX = false;
+				player.spriteRenderer.flipX = false;
 				if(player.RightBox != null)
 				{
 					Box box = player.RightBox.GetComponent<Box>();

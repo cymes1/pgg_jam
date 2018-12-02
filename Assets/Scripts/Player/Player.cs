@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float moveOffset = 1.5f;
     public float climbSpeed = 1;
     public Animator animator;
-    public SpriteRenderer renderer;
+    public SpriteRenderer spriteRenderer;
 
     private PlayerStateMachine stateMachine;
     private GameObject leftBox;
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
         PlayerClimbingState climbingState = new PlayerClimbingState(this);
         climbingState.AddTransition(Transition.PlayerReturnToRegularTransition, StateID.PlayerRegularStateID);
-        climbingState.AddTransition(Transition.PlayerCrushTransition, StateID.PlayerCrushedStateID);
+        //climbingState.AddTransition(Transition.PlayerCrushTransition, StateID.PlayerCrushedStateID);
 
         PlayerCrushedState crushedState = new PlayerCrushedState(this);
 
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         pushingState.PlayerCrushedEvent += stateMachine.OnPlayerCrush;
 
         climbingState.PlayerReturnedToRegularEvent += stateMachine.OnReturnToRegular;
-        climbingState.PlayerCrushedEvent += stateMachine.OnPlayerCrush;
+        //climbingState.PlayerCrushedEvent += stateMachine.OnPlayerCrush;
     }
 
     void OnTriggerEnter2D(Collider2D other)

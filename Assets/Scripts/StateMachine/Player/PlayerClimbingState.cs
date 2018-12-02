@@ -17,27 +17,35 @@ public class PlayerClimbingState : PlayerState
 	public override void DoBeforeEntering()
 	{
 		player.animator.SetBool("isWalking", true);
+		player.GetComponent<BoxCollider2D>().isTrigger = true;
 	}
 
 	public override void Act()
 	{
 		Vector3 position = player.transform.position;
-		if(position.y < yTarget)
-			position.y += player.climbSpeed * Time.deltaTime;
-		else if(position.y > yTarget)
-			position.y = yTarget;
-		else if(position.y == yTarget)
+
+		if(position.x * (int)direction < xTarget * (int)direction)
+			position.x += (int)direction * player.climbSpeed * Time.deltaTime;
+		else if(position.x * (int)direction > xTarget * (int)direction)
+			position.x = xTarget;
+		else
 		{
 			player.animator.SetBool("isWalking", false);
 			player.animator.SetBool("isIdle", true);
-			if(position.x * (int)direction < xTarget * (int)direction)
-				position.x += (int)direction * player.climbSpeed * Time.deltaTime;
-			else if(position.x * (int)direction > xTarget * (int)direction)
-				position.x = xTarget;
-			else
+			if(position.y < yTarget)
+				position.y += player.climbSpeed * Time.deltaTime;
+			else if(position.y > yTarget)
+				position.y = yTarget;
+			else if(position.y == yTarget)
 				ReturnToRegular();
 		}
+
 		player.transform.position = position;
+	}
+
+	public override void DoBeforeLeaving()
+	{
+		player.GetComponent<BoxCollider2D>().isTrigger = false;
 	}
 
 	public void ReturnToRegular()

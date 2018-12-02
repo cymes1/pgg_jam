@@ -61,7 +61,7 @@ public class Crane : MonoBehaviour {
         {
             transform.Translate(-speedCrane, 0, 0);
         }
-        Debug.Log(noMoreBoxes);
+        //Debug.Log(noMoreBoxes);
     }
 
     void InstantiateBox(int random)
