@@ -42,11 +42,11 @@ public class GameOverMenu : MonoBehaviour
 
 	public void ReturnToMainMenu()
 	{
-		//todo
+		SceneManager.LoadScene(0);
 	}
 
 	public void Retry()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(1);
 	}
 }

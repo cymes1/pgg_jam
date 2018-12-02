@@ -277,6 +277,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  boxRespawnCounter: 
 --- !u!61 &154148225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2350,16 +2351,6 @@ Prefab:
     - target: {fileID: 4800402480851428, guid: 79b544d33d8aae041a65d763861fad77, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 61394247022097588, guid: 79b544d33d8aae041a65d763861fad77,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61525326497700428, guid: 79b544d33d8aae041a65d763861fad77,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b544d33d8aae041a65d763861fad77, type: 2}
